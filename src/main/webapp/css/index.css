@@ -1,0 +1,71 @@
+body{
+	margin: auto;
+	margin: 0px;
+}
+#logo{
+	margin-top: 50px;
+}
+#pic{
+	margin-top: 30px;
+}
+#denglu{
+	height: 450px;
+	border:2px #E7E7E7 solid;
+/*	width: 85%;*/
+	padding: 30px;
+	margin-top: 30px;
+}
+#denglu1{
+	font-size: 30px;
+}
+#denglu2{
+	font-size: 30px;
+	color:#00645D;
+	text-align: right;
+}
+.denglu3{
+	width: 95%;
+	height: 50px;
+	margin-top: 50px;
+}
+#denglu4{
+	text-align: right;
+	margin-top: -80px;
+	color:#00645D;
+	font-size: 15px;
+}
+.denglu5{
+	width: 95%;
+	height: 50px;
+	margin-top: 50px;
+	background-color:#00645D ;
+	color: white;
+	font-size: 20px;
+}
+.foot{
+	margin-top: 50px;
+	background-color: #000000;
+	font-size: 20px;
+	height: 50px;
+	text-align: center;
+	padding-top: 10px;
+}
+/*a{
+	text-decoration: none;
+}*/
+#denglu2 a:link{
+	color:#00645D ;
+	text-decoration: none;
+}
+#denglu2 a:visited{
+	color:#00645D ;
+	text-decoration: none;
+}
+#denglu2 a:hover{
+	color:#00645D ;
+	text-decoration: none;
+}
+#denglu2 a:active{
+	color:#00645D ;
+	text-decoration: none;
+}

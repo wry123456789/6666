@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<p>生成订单</p>
+<p>支付</p>
 <form action="order" method="post">
 <input type="hidden"name="option"value="1"/>
 <table>
@@ -43,6 +43,7 @@
 <tr>
     <td colspan="2"><input id="s" type="submit"value="提交"></td>
 </tr>
+    <tr></tr>
 </table>
 </form>
 </body>

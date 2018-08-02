@@ -15,6 +15,8 @@ public interface CartDao {
 	 * ��ӹ��ﳵ
 	 **/
 	public boolean addCart(int productid, int productnum, int accountid);
+
+	public boolean addCart(Cart cart);
 	/**
 	 * ɾ��������Ϣ��Id
 	 * */
@@ -38,13 +40,13 @@ public interface CartDao {
 	 * @param  num �޸ĺ������
 	 * */
 	boolean  updateCart(int id, int num);
-	
+
 
 	/**
 	 * ��չ��ﳵ
 	 * */
 	void  clearCart() ;
-	
+	boolean clearCart(int userid);
 	public Cart findById(int id);
 	
 }

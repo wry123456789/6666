@@ -1,0 +1,85 @@
+body{
+	margin: auto;
+	margin: 0px;
+}
+#logo{
+	margin-top: 50px;
+}
+#zhuce {
+	height: 850px;
+	border:2px #E7E7E7 solid;
+/*	width: 95%;*/
+	padding: 30px;
+	margin-top: 20px;
+}
+#zhuce1{
+	font-size: 20px;
+/*	margin-left: 50px;*/
+}
+#zhuce2{
+	font-size: 20px;
+/*	color:#00645D;*/
+	text-align: right;
+}
+/*.denglu3{
+	width: 35%;
+	height: 40px;
+	margin-top: 30px;
+}
+.denglu4{
+	width: 35%;
+	height: 50px;
+	margin-top: 10px;
+	background-color:#00645D ;
+	color: white;
+	font-size: 20px;
+	margin-left: 9%;
+}
+.denglu5{
+	height: 10px;
+	margin-left: 9%;
+	margin-top: 20px;
+	font-size: 15px;
+}
+form{
+	margin-left: 15%;
+	font-size: 20px;
+}*/
+form{
+	font-size: 20px;
+}
+.kuang{
+	padding: 20px;
+}
+button{
+	background-color:#00645D;
+	width: 50%;
+	
+}
+.foot{
+	margin-top: 50px;
+	background-color: #000000;
+	font-size: 20px;
+	height: 50px;
+	text-align: center;
+}
+a{
+	color:#00645D;
+}
+#zhuce2 a:link{
+	color:#00645D ;
+	text-decoration: none;
+}
+#zhuce2 a:visited{
+	color:#00645D ;
+	text-decoration: none;
+}
+#zhuce2 a:hover{
+	color:#00645D ;
+	text-decoration: none;
+}
+#zhuce2 a:active{
+	color:#00645D ;
+	text-decoration: none;
+}
+

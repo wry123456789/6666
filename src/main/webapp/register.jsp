@@ -6,7 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理员注册</title>
 </head>
+<style>
+	#form{
+		width: 411px;
+		height: 500px;
+		margin: 100px auto;
+
+		background-color: white;
+	}
+</style>
 <body>
+<div id="form">
  <form action="login" method="post">
  	<input type="hidden" name="option" value="2"/>
  	<table>
@@ -26,5 +36,6 @@
  		</tr>
  	</table>
  </form>
+</div>
 </body>
 </html>

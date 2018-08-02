@@ -1,0 +1,33 @@
+body,html,div{
+	margin: 0px;
+	margin: auto;
+}
+
+.sousuo{
+	background-color: #00645D;
+	color:white;
+}
+.che{
+	margin-top: 20px;
+	height: 50px;
+	width: 100%;
+	background-color: white;
+	border:1px darkgrey solid;
+	color:#00645D;
+	font-size:20px;
+	padding-top:10px ;
+	text-align: center;
+}
+.daohang a:link{
+	color: #777777;
+}
+.daohang a:visited{
+	color: #777777;
+}
+.daohang a:hover{
+	color: white;
+	text-decoration: none;
+}
+.daohang a:active{
+	color: white;
+}

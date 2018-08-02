@@ -1,0 +1,52 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.CartDao">
+<resultMap id="findCart" type="cart" autoMapping="true">
+    <id column="id" property="id"></id>
+    <result column="productnum" property="productNum"></result>
+
+<association property="product" column="productid" javaType="product" autoMapping="true">
+<id property="id" column="productid"></id>
+ <result property="desc" column="pdesc"></result>
+</association>
+</resultMap>
+
+    <!--根据名字去查id-->
+    <select id="findAllCart" statementType="PREPARED"  resultMap="findCart" parameterType="int">
+       select c.id id,p.id productid,c.productnum productnum, c.checked checked,p.name name,
+       p.pdesc pdesc,p.price price,p.rule rule,p.image image,p.stock stock,c.checked from cart c left join
+       product p on p.id=c.productid
+    </select>
+    <insert id="addCart" parameterType="cart" statementType="PREPARED" useGeneratedKeys="true">
+        insert into cart(productid,productnum,userid) values (#{product.id},#{productNum},#{acc.accountId})
+    </insert>
+    <update id="updataeCart" parameterType="cart"  statementType="PREPARED" >
+     update cart
+     <set>
+        <if test="productNum!=null">productnum=#{productNum},</if>
+         <if test="checked &gt; 0">checked=#{checked}</if>
+
+    </set>
+        where id=#{id}
+    </update>
+    <delete id="deleteCart" parameterType="int">
+        delete from cart where id=#{id}
+    </delete>
+   <!--清空购物车-->
+    <delete id="clearCart" parameterType="int">
+        delete from cart where userid=#{userid} and checked=1;
+    </delete>
+</mapper>
+<!--private  int  id; //商品id
+	private  String  name;//商品名称
+	private  String  desc;//商品描述
+	private  double  price;//商品价格
+	private  String  rule;//商品规格
+	private String  image;
+	private  int  stock;//库存
+	int productid, int productnum,int accountid
+	void clearCart(Cart c);
+	public Cart findById(int id);
+	deleteCart
+	-->

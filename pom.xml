@@ -73,6 +73,15 @@
       <version>1.2.47</version>
     </dependency>
 
+    <!--mybatis-->
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.3</version>
+    </dependency>
+
+
   </dependencies>
 
 

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<style>
+			h2 {
+				color: #00645D;
+			}
+			
+			.xian {
+				border-top: 2px #00645D solid;
+			}
+			.xian2 {
+				border-top: 2px #F5F5F5 solid;
+			}
+			.jiage{
+				margin-top: 10px;
+				color:#00645D;
+				text-align: center;
+			}
+			.jiage a:link {
+				color: darkgray;
+				text-decoration: none;
+			}
+			
+			.jiage a:visited {
+				color:darkgray;
+				text-decoration: none;
+			}
+			
+			.jiage a:hover {
+				color: black;
+				text-decoration: none;
+			}
+			
+			.jiage a:active {
+				color: black;
+				text-decoration: none;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<h2>我的订单</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12 xian"></div>
+			</div>
+			<form class="form-inline" style="margin-top: 20px;">
+				<div class="form-group">
+					<label for="exampleInputName2">商品名称：</label>
+					<input type="text" class="form-control" id="exampleInputName2">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail2">订单编号：</label>
+					<input type="email" class="form-control" id="exampleInputEmail2">
+				</div>
+				<button type="submit" class="btn btn-default" style="background-color: #00645D;color:white;">搜索</button>
+			</form>
+			<ul class="nav nav-tabs" style="margin-top: 20px;">
+				<li role="presentation" class="active">
+					<a href="#">全部订单</a>
+				</li>
+				<li role="presentation" >
+					<a href="#" style="color:#00645D">代付款</a>
+				</li>
+				<li role="presentation">
+					<a href="#" style="color:#00645D">待收货</a>
+				</li>
+				<li role="presentation">
+					<a href="#" style="color:#00645D">待评价</a>
+				</li>
+			</ul>
+			<div class="row">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<img src="img/2018-04-09_195914.jpg" class="img-responsive" style="margin: auto;" />
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12"></div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="jiage">总额 ¥5999.00<br /><br />在线支付<br /><br /><a href="#about">订单详情</a><br /><br /><a href="#about">申请售后</a></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12 xian2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<img src="img/2018-04-09_201300.jpg" class="img-responsive" style="margin: auto;" />
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12"></div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="jiage">总额 ¥6999.00<br /><br />在线支付<br /><br /><a href="#about">订单详情</a><br /><br /><a href="#about">申请售后</a></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12 xian2"></div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	</body>
+
+</html>

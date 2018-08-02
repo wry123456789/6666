@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<style>
+		.table tbody tr td{
+	vertical-align: middle !important;
+	
+}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<ol class="breadcrumb daohang">
+						<li>
+							<span class="glyphicon glyphicon-home" style="color: #4CAE4C ;"></span>
+						</li>
+						<li class="active">订单</li>
+						<li class="active">订单管理</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<tr>
+								<th colspan="11">订单列表</th>
+							</tr>
+							<tr>
+								<td colspan="11">
+									<ul class="nav nav-pills">
+										<li role="presentation" class="dropdown" style="border: 1px #4CAE4C solid;border-radius: 5px;">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+												订单状态 <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li>&nbsp;&nbsp;未确认</li>
+												<li>&nbsp;&nbsp;已确认</li>
+												<li>&nbsp;&nbsp;已取消</li>
+												<li>&nbsp;&nbsp;已完成</li>
+											</ul>
+										</li>
+										<li role="presentation" class="dropdown" style="border: 1px #4CAE4C solid;border-radius: 5px;">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+												支付状态 <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li>&nbsp;&nbsp;未支付</li>
+												<li>&nbsp;&nbsp;已支付</li>
+												<li>&nbsp;&nbsp;已退款</li>
+
+											</ul>
+										</li>
+										<li role="presentation" class="dropdown" style="border: 1px #4CAE4C solid;border-radius: 5px;">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+												配送状态 <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li>&nbsp;&nbsp;未发货</li>
+												<li>&nbsp;&nbsp;已发货</li>
+												<li>&nbsp;&nbsp;已退货</li>
+
+											</ul>
+										</li>
+										<li role="presentation" class="dropdown" style="border: 1px #4CAE4C solid;border-radius: 5px;">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+												支付方式 <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li>&nbsp;&nbsp;网上支付</li>
+												<li>&nbsp;&nbsp;银行汇款</li>
+												<li>&nbsp;&nbsp;货到付款</li>
+
+											</ul>
+										</li>
+										<li role="presentation" class="dropdown" style="border: 1px #4CAE4C solid;border-radius: 5px;">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+												配送方式 <span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li>&nbsp;&nbsp;普通快递</li>
+												<li>&nbsp;&nbsp;顺丰快递</li>
+
+											</ul>
+										</li>
+									</ul><br />
+									<form class="form-inline">
+										<div class="form-group">
+											<label for="exampleInputName2">订单编号：</label>
+											<input type="text" class="form-control" id="exampleInputName2">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputEmail2">下单时间：</label>
+											<input type="datetime" name="bdaytime" class="form-control" id="exampleInputEmail2">
+										</div>
+										<button type="submit" class="btn btn-default" style="background-color: #FEC92B;color:white;border:0px;">查询</button>
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>ID</td>
+								<td>订单编号</td>
+								<td>买家姓名</td>
+								<td>订单金额（元）</td>
+								<td>订单状态</td>
+								<td>支付状态</td>
+								<td>支付方式</td>
+								<td>配送方式</td>
+								<td>配送状态</td>
+								<td>操作</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1365</td>
+								<td>1536895425</td>
+								<td>admin</td>
+								<td>5999.00</td>
+								<td>未确认</td>
+								<td>未支付</td>
+								<td>网上支付</td>
+								<td>普通快递</td>
+								<td>未发货</td>
+								<td><span class="glyphicon glyphicon-pencil" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #FEC92B;color: white;"></span>修改<br/><span class="glyphicon glyphicon-trash" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #4CAE4C;color: white;"></span>删除</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1364</td>
+								<td>5632895425</td>
+								<td>admin</td>
+								<td>999.00</td>
+								<td>未确认</td>
+								<td>未支付</td>
+								<td>网上支付</td>
+								<td>普通快递</td>
+								<td>未发货</td>
+								<td><span class="glyphicon glyphicon-pencil" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #FEC92B;color: white;"></span>修改<br/><span class="glyphicon glyphicon-trash" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #4CAE4C;color: white;"></span>删除</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1363</td>
+								<td>9631538425</td>
+								<td>admin</td>
+								<td>3699.00</td>
+								<td>未确认</td>
+								<td>未支付</td>
+								<td>网上支付</td>
+								<td>普通快递</td>
+								<td>未发货</td>
+								<td><span class="glyphicon glyphicon-pencil" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #FEC92B;color: white;"></span>修改<br/><span class="glyphicon glyphicon-trash" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #4CAE4C;color: white;"></span>删除</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1362</td>
+								<td>5632565425</td>
+								<td>admin</td>
+								<td>99.00</td>
+								<td>已确认</td>
+								<td>已支付</td>
+								<td>网上支付</td>
+								<td>普通快递</td>
+								<td>未发货</td>
+								<td><span class="glyphicon glyphicon-pencil" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #FEC92B;color: white;"></span>修改<br/><span class="glyphicon glyphicon-trash" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #4CAE4C;color: white;"></span>删除</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1361</td>
+								<td>1685369524</td>
+								<td>admin</td>
+								<td>999.00</td>
+								<td>已确认</td>
+								<td>已支付</td>
+								<td>网上支付</td>
+								<td>普通快递</td>
+								<td>已发货</td>
+								<td><span class="glyphicon glyphicon-pencil" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #FEC92B;color: white;"></span>修改<br/><span class="glyphicon glyphicon-trash" style="width:20px;height:20px;padding-left:3px;padding-top:3px;background-color: #4CAE4C;color: white;"></span>删除</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	</body>
+
+</html>

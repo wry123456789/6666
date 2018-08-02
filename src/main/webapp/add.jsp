@@ -24,6 +24,11 @@
 <form action="product" method="post">
 <input type="hidden"name="option"value="1"/>
 <table>
+
+	<tr>
+		<td>商品类别:<td>
+		<td><input type="text"name="category"/></td>
+	</tr>
 	<tr>
 		<td>商品名称:<td>
 		<td><input type="text"name="name"/></td>

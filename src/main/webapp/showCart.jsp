@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="js/jquery-3.3.1.min.js"></script>
 <script>
 <%
  HttpSession session1 = request.getSession();
@@ -18,8 +19,25 @@
   String username= account.getUsername();
   HttpSession session2 = request.getSession();
   double a=(double)session1.getAttribute("p");
-%>
 
+%>
+    $(function(){
+       //当点击btn的时候包括它本身和循环里面的btn显示一样
+        $("#btn").click(function(){
+            $("#btn1 input").prop("checked",$(this).prop("checked"));
+        })
+        //点击btn1判断有checked属性和checkbox的个数进行对比如果相同的话就给上面的
+        $("#btn1 input").click(function(){
+           if($("#btn1 input").length==$("#btn1 input:checked").length){
+               alert($("#btn1 input").length==$("#btn1 input:checked").length)
+               alert($("#btn1 input:checked").length)
+               $("#btn").prop("checked",true);
+           }else{
+               $("#btn").prop("checked",false)
+           }
+        })
+});
+//当点击这个的时候调用一个判断被选的状态
 </script>
 <style>
 	a{
@@ -29,6 +47,7 @@
 <body>
 <table>
 <tr>
+    <th> <input id="btn"type="checkbox"/></th>
 <th>商品名称</th>
 <th>商品数量</th>
 <th>商品价格</th>
@@ -36,7 +55,8 @@
 <th><a href="cart?option=6">清空购物车</a></th>
 </tr>
 <c:forEach items="${cartlist}" var="cart">
-<tr>
+<tr id="btn1">
+    <td> <input type="checkbox"/></td>
     <td>${cart.product.name}</td>
     <td>${cart. productNum}</td>
     <td>${cart.product.price}</td>
@@ -48,7 +68,7 @@
 </c:forEach>
 <tr><td>用户名<td><%=username %></td></tr>
 <tr><td>总计<td><%=a %></td></tr>
-<tr><td><a href="#">结算</a><td></tr>
+<tr><td><a href="order?option=2">结算</a><td></tr>
 
 </table>
 </body>

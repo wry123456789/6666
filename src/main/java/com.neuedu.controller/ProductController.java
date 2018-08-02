@@ -1,6 +1,7 @@
 package com.neuedu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.neuedu.entity.Page;
 import com.neuedu.entity.Product;
 import com.neuedu.service.ProductService;
@@ -48,18 +50,24 @@ doPost(req,resp);
 		findById(req,resp);
 	}else if("7".equals(option)) {
 	    findProductByPage(req,resp);
-	}
+	}else if("8".equals(option)) {
+		   findAll(req, resp);
+	   }else if("9".equals(option)) {
+		   findProductByIds(req,resp);
+	   }
 	}
 	public void add(HttpServletRequest req,HttpServletResponse reps) {
 		String name=req.getParameter("name");
 		String desc=req.getParameter("desc");
 		Integer stock=0;
 		Double price=0.0;
+		int id =0;
 		String rule=req.getParameter("rule");
 		String image=req.getParameter("image");
 		try {
 		 stock=Integer.parseInt(req.getParameter("stock"));
 		 price=Double.parseDouble(req.getParameter("price"));
+		 id =Integer.parseInt(req.getParameter("category"));
 		}catch(Exception e) {
 			throw new RuntimeException();
 		}
@@ -70,6 +78,7 @@ doPost(req,resp);
 		product.setRule(rule);
 		product.setImage(image);
 		product.setStock(stock);
+		product.setId(id);
 		System.out.println(product);
 		boolean flag=pService.addProduct(product);
 		if(flag) {
@@ -95,25 +104,25 @@ doPost(req,resp);
 		}
 		return product ;
 	}
-	/**添加商品*/
-    public  boolean addProduct(Product product) {
-    	return pService.addProduct(product);
-    }	
+
     /**查询商品*/
     public  void findAll(HttpServletRequest request,HttpServletResponse response){
+response.setHeader("Access-Control-Allow-Origin" ,
+		"*");
     	List<Product> list= pService.findAll();
-    	request.setAttribute("products", list);
-    	
-    	//因为需要将数据显示在页面上所以需要调用显示信息的jsp
-    	try {
-         request.getRequestDispatcher("showproduct.jsp").forward(request, response);
-		System.out.println("跳转成功");
-    	} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("跳转失败");
+    	System.out.println("我在前台输出了");
+
+    Gson s = new Gson();
+    String s1=s.toJson(list);
+    PrintWriter pw=null;
+		try {
+			pw=response.getWriter();
+			pw.write(s1);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-    	
-    }
+
+	}
     /**修改商品*/
     public void updateProduct(HttpServletRequest request,HttpServletResponse response) {
     	Product p= new Product();
@@ -141,7 +150,7 @@ doPost(req,resp);
         	if(flag) {
         	
         	System.out.println("修改成功");
-        	findAll(request, response);
+				findProductByPage(request, response);
         	return ;
         	}else {
         		System.out.println("修改失败");
@@ -156,7 +165,7 @@ doPost(req,resp);
     	boolean flag=pService.deleteProduct(Integer.parseInt(request.getParameter("id")));
     	if(flag) {
     		System.out.println("删除成功");
-    		findAll(request, response);
+			findProductByPage(request, response);
     	}else {
     		System.out.println("删除失败");
     	}
@@ -165,26 +174,21 @@ doPost(req,resp);
    * 因为需要将数据显示到页面上从页面获取数据，接受页面传过来的数据
    * 1.先将数据显示到控制台
   */ 
-    public void findProductById(HttpServletRequest request,HttpServletResponse response) {
+    public void findProductByIds(HttpServletRequest request,HttpServletResponse response) {
     	//获取id也可以通过如何将数据显示在页面上
+		response.setHeader("Access-Control-Allow-Origin" ,"*");
     	int id=Integer.parseInt(request.getParameter("id"));
     	Product product =pService.findProductById(id);
-    	System.out.println(product.getStock());
-    	if(product.getName()!=null) {
-    	request.setAttribute("product", product);
-    	}else {
-    		request.getRequestDispatcher("showfail.jsp");
-    	}
-        try {
-			request.getRequestDispatcher("showproductById.jsp").forward(request, response);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+        Gson gson = new Gson();
+        String s= gson.toJson(product);
+        PrintWriter pw = null;
+		try {
+			pw=response.getWriter();
+			pw.write(s);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
+	}
    public void findProductByPage(HttpServletRequest request,HttpServletResponse response) {
 	  
 	   String pageNo=request.getParameter("pageNo");
@@ -201,6 +205,27 @@ doPost(req,resp);
 		e.printStackTrace();
 	}
    }
-   
+	public void findProductById(HttpServletRequest request,HttpServletResponse response) {
+		//获取id也可以通过如何将数据显示在页面上
+		response.setHeader("Access-Control-Allow-Origin" ,
+				"*");
+		int id=Integer.parseInt(request.getParameter("id"));
+		Product product =pService.findProductById(id);
+		System.out.println(product.getStock());
+		if(product.getName()!=null) {
+			request.setAttribute("product", product);
+		}else {
+			request.getRequestDispatcher("showfail.jsp");
+		}
+		try {
+			request.getRequestDispatcher("showproductById.jsp").forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

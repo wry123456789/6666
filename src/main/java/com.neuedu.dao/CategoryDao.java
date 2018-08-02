@@ -4,5 +4,5 @@ import com.neuedu.entity.Category;
 
 public interface CategoryDao {
 	public boolean addProductCategory(Category c);
-
+   public int findCategoryIdByName(String name);
 }

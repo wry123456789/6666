@@ -23,11 +23,28 @@ public class Product implements Serializable{
 	private  double  price;//商品价格
 	private  String  rule;//商品规格
 	private String  image;
-	
-	
-	private  int  stock=100;//库存
-	
-	
+	private  int  stock;//库存
+	private Category c;
+	private int categoryId;
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+
+
+	public Category getC() {
+		return c;
+	}
+
+	public void setC(Category c) {
+		this.c = c;
+	}
+
 	public Product() {
 		super();
 	}

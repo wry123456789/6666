@@ -14,7 +14,7 @@ import com.neuedu.entity.Cart;
 
 import com.neuedu.utils.DBUtils;
 
-public class CartDaoImpl implements CartDao {
+public class CartDaoImpl implements CartDao{
 
 	ProductDao productDao=new ProductDaoImpl();
 
@@ -213,7 +213,14 @@ public class CartDaoImpl implements CartDao {
 		
 		
 	}
-//购物车增加
+
+	@Override
+	public boolean clearCart(int userid) {
+		return false;
+	}
+
+
+	//购物车增加
 	@Override
 	public boolean addCart(int productid, int productnum,int accountid) {
 		//增加之前先进判断查看增加的商品id是否相同
@@ -248,6 +255,11 @@ public class CartDaoImpl implements CartDao {
 				e.printStackTrace();
 			}
 		}
+		return false;
+	}
+
+	@Override
+	public boolean addCart(Cart cart) {
 		return false;
 	}
 

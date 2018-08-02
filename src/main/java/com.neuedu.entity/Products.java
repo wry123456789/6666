@@ -9,13 +9,13 @@ public class Products implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -6185202905228190806L;
-	private  int  id; //商品id
-	private  String  name;//商品名称
-	private  String  desc;//商品描述
-	private  double  price;//商品价格
+	private  int  id; //???id
+	private  String  name;//???????
+	private  String  desc;//???????
+	private  double  price;//??????
 	
 	
-	private  int  stock=100;//库存
+	private  int  stock=100;//???
 	
 	
 	public Products() {

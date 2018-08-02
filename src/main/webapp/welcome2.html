@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/echarts.simple.min.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<style>
+			.daohang a:link {
+				color: #777777;
+			}
+			
+			.daohang a:visited {
+				color: #777777;
+			}
+			
+			.daohang a:hover {
+				color: white;
+				text-decoration: none;
+			}
+			
+			.daohang a:active {
+				color: white;
+			}
+			
+			.kuang {
+				margin: auto;
+				width: 100%;
+				height: 120px;
+			}
+			
+			.word {
+				color: white;
+				font-size: 20px;
+				margin-right: 20px;
+				margin-top: -45px;
+				text-align: right;
+			}
+			
+			.kuang2 {
+				margin: auto;
+				width: 100%;
+				height: 200px;
+				border: 1px #2DA3FB solid;
+			}
+			
+			.head {
+				margin: auto;
+				width: 100%;
+				height: 40px;
+				background-color: #5BC0DE;
+				color: white;
+				font-size: 20px;
+				padding-top: 5px;
+				padding-left: 10px;
+			}
+			
+			.head2 {
+				float: left;
+				margin-left: 30px;
+				margin-top: 25px;
+			}
+			
+			.head3 {
+				float: left;
+				margin-left: 10px;
+				margin-top: 25px;
+			}
+			
+			.kuang3 {
+				margin: auto;
+				width: 100%;
+				height: 420px;
+				background-color: #F5F5F5;
+			}
+			
+			#list {
+				margin-top: 20px;
+				font-size: 25px;
+				color: #5CB85C;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<ol class="breadcrumb daohang">
+						<li>
+							<span class="glyphicon glyphicon-home" style="color: #4CAE4C ;"></span>
+						</li>
+						<li class="active">工作台</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="kuang" style="background-color: #5CB85C;">
+						<span class="glyphicon glyphicon-heart" style="color: white;font-size: 40px;margin-top: 20px;margin-left: 20px;"></span>
+						<div class="word">0<br/><br/>今日销售额</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="kuang" style="background-color:#FEC92B ;">
+						<span class="glyphicon glyphicon-calendar" style="color: white;font-size: 40px;margin-top: 20px;margin-left: 20px;"></span>
+						<div class="word">0<br/><br/>今日订单数</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="kuang" style="background-color:#2DA3FB ;">
+						<span class="glyphicon glyphicon-tasks" style="color: white;font-size: 40px;margin-top: 20px;margin-left: 20px;"></span>
+						<div class="word">59625<br/><br/>出售商品数</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="kuang" style="background-color:#C172D8 ;">
+						<span class="glyphicon glyphicon-user" style="color: white;font-size: 40px;margin-top: 20px;margin-left: 20px;"></span>
+						<div class="word">5456565<br/><br/>总会员数</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 20px;">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="kuang2">
+						<div class="head">待处理</div>
+						<div class="head2"><img src="img/2018-04-10_104748.jpg" class="img-responsive" /><br/><span style="margin-left: 15px;">350</span></div>
+						<div class="head2"><img src="img/2018-04-10_104756.jpg" class="img-responsive" /><br/><span style="margin-left: 15px;">652</span></div>
+						<div class="head2"><img src="img/2018-04-10_104808.jpg" class="img-responsive" /><br/><span style="margin-left: 15px;">52</span></div>
+
+					</div>
+
+					<div class="kuang2" style="margin-top: 20px;border:1px #FEC92B solid">
+						<div class="head" style="background-color: #EEA236;">常用菜单</div>
+						<div class="head3"><img src="img/2018-04-10_110418.jpg" class="img-responsive" /><br/><span style="margin-left: 15px;">商品发布</span></div>
+						<div class="head3"><img src="img/2018-04-10_110429.jpg" class="img-responsive" /><br/><span style="margin-left: 15px;">优惠券</span></div>
+						<div class="head3"><img src="img/2018-04-10_110439.jpg" class="img-responsive" /><br/><span style="margin-left: 15px;">在线客服</span></div>
+					</div>
+
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="kuang3">
+						<div class="head" style="background-color: #5CB85C;text-align: center;">热销单品</div>
+						<table class="table table-striped">
+							<tr>
+								<td colspan="5">商品名称</td>
+								<td>分类</td>
+								<td>销量</td>
+							</tr>
+						</table>
+						<div class="row">
+							<div class="col-md-5 col-sm-5 col-xs-5">
+								<img src="img/2018-04-09_191014.jpg" />
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3">
+								<div style="margin-top: 20px;">手机通讯</div>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<div style="margin-top: 20px;">536</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-5 col-sm-5 col-xs-5">
+								<img src="img/2018-04-09_184635.jpg" />
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3">
+								<div style="margin-top: 20px;">手机通讯</div>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<div style="margin-top: 20px;">966</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-5 col-sm-5 col-xs-5">
+								<img src="img/2018-04-09_191118.jpg" />
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3">
+								<div style="margin-top: 20px;">电脑办公</div>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<div style="margin-top: 20px;">156</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-5 col-sm-5 col-xs-5">
+								<img src="img/2018-04-09_191640.jpg" />
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3">
+								<div style="margin-top: 20px;">影音视听</div>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<div style="margin-top: 20px;">256</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div id="list">销售额统计图表</div>
+				</div>
+			</div>
+
+			<div id="main" style="height: 400px;width: 800px;"></div>
+			<script type="text/javascript">
+				var myChart = echarts.init(document.getElementById('main'));
+				var option = {
+					xAxis: {
+						type: 'category',
+						data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						data: [820, 932, 901, 934, 1290, 1330, 1320],
+						type: 'line'
+					}]
+				};
+				myChart.setOption(option);
+			</script>
+			<div id="main2" style="height: 400px;width: 800px;"></div>
+			<script type="text/javascript">
+				var myChart = echarts.init(document.getElementById('main2'));
+				var option = {
+					xAxis: {
+						type: 'category',
+						data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						data: [120, 200, 150, 80, 70, 110, 130],
+						type: 'bar'
+					}]
+				};
+				myChart.setOption(option);
+			</script>
+
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	</body>
+
+</html>

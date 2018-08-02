@@ -1,8 +1,6 @@
 package com.neuedu.dao.impl.jdbc;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.neuedu.dao.CartDao;
@@ -85,11 +83,57 @@ public class OrderDaoImpl implements OrderDao {
 		
 		return false;
 	}
+	public List<UserOrder> findAll(int userid) {
+		Connection conn=null;
+		PreparedStatement st=null;
+		ResultSet rs = null;
+		List<UserOrder> l = new ArrayList<UserOrder>();
+		String sql ="select * from userorder where user_id="+userid;
+		try {
+			conn=DBUtils.getConnection();
+			st=conn.prepareStatement(sql);
+			rs=st.executeQuery();
+
+			while(rs.next()) {
+				int id=rs.getInt("id");
+
+				long order =rs.getLong("order_no");
+
+
+//				String pm =rs.getString("product_name");
+//				int pid =rs.getInt("productid");
+//				double p1 =rs.getDouble("current_unit_price");
+  			   double p2 =rs.getDouble("payment");
+  			    long time=rs.getLong("payment_time");
+//				int p3 =rs.getInt("quantity");
+//				int p4 = rs.getInt("postage");
+				UserOrder uo = new UserOrder();
+				uo.setId(id);
+				uo.setOrder_no(order);
+
+				uo.setPayment(p2);
+				uo.setPayment_time(time);
+				System.out.println(uo.getId());
+				l.add(uo);
+
+			}
+		}catch(Exception e) {
+
+		}
+		return l;
+	}
+
 
 	@Override
 	public int generateOrderId() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<UserOrder> selectOrder(int userId) {
+
+		return null;
 	}
 
 }

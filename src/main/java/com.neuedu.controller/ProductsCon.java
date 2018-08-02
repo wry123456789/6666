@@ -61,6 +61,7 @@ public class ProductsCon extends HttpServlet {
 		
 	}
 	public void add(HttpServletRequest req,HttpServletResponse reps){
+
 		System.out.println("被调用了");
 		String name=req.getParameter("name");
 		String desc=req.getParameter("desc");

@@ -3,7 +3,7 @@ package com.neuedu.entity;
 import java.io.Serializable;
 
 /**
- * 订单明细实体类
+ * ????????????
  * */
 public class UserOrderItem implements Serializable{
 
@@ -22,8 +22,18 @@ public class UserOrderItem implements Serializable{
 	private double total_price;
 	private long create_time;
 	private long update_time;
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public UserOrderItem(int id, long order_no, int user_id, int product_id, String product_name, String product_image,
-			double current_unit_price, int quantity, double total_price, long create_time, long update_time) {
+						 double current_unit_price, int quantity, double total_price, long create_time, long update_time) {
 		super();
 		this.id = id;
 		this.order_no = order_no;

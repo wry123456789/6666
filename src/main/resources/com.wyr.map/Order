@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.OrderDao">
+<insert id="createOrder" parameterType="order">
+insert into userorder(order_no,user_id,shipping_id,payment,payment_type,postage,status,create_time) values(
+#{order_no},#{user_id},#{a.id},#{payment},#{payment_type},#{a.pay},#{status},now())
+</insert>
+
+<select id="selectOrder"  resultType="order" parameterType="int">
+select id,order_no,user_id,shipping_id,payment,payment_type,postage,status,create_time from userorder
+where user_id=#{user_id}
+</select>
+</mapper>
+<!--private  int  id;
+	private long order_no;
+	private int user_id;
+	private double  payment;//实际付款金额
+	private int payment_type;
+	private Address a;
+	private int  status;
+	private long  payment_time;
+	private long  send_time;
+	private long  end_time;
+	private long close_time;
+	private long  create_time;
+	private long update_time;
+	-->

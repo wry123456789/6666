@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neuedu.entity.Account">
+
+   <update id="updateProduct" parameterType="product" statementType="PREPARED" >
+       update product set name=#{name},pdesc=#{desc},price=#{price},rule=#{rule}, image=#{image},stock=#{stock} where id=#{id}
+   </update>
+   <select id="login" resultType="com.neuedu.entity.Account" parameterType="map">
+       select * from account where username=#{username} and password=#{password}
+   </select>
+
+    <select id="findT" resultType="int" >
+        select  count(id) from product
+    </select>
+    <select id="findIdByName" resultType ="product" parameterType="string">
+
+    </select>
+    <delete id="deleteProduct" parameterType="int"  statementType="PREPARED" >
+        delete from product where id=#{id}
+    </delete>
+
+    <resultMap id="findProduct" type="product">
+        <result column="pdesc" property="desc"></result>
+    </resultMap>
+    <select id="findProductByPage" resultMap="findProduct" parameterType="java.util.Map">
+        select id,name,price,rule,pdesc,image,stock from  product limit #{offset},#{pageSize}
+    </select>
+<!--查询相似语句-->
+<select id="findByName" resultMap="findProductByName" statementType="PREPARED">
+    select * from product  where name like   "%"#{name}"%"
+</select>
+    <resultMap id="findProductByName" type="product">
+    </resultMap>
+
+    <insert id="addProduct"  parameterType="product" statementType="PREPARED" useGeneratedKeys="true" >
+        insert into product(name,pdesc,price,rule,image,stock,categoryId) values (#{name},#{desc},#{price},#{rule},#{image},#{stock},#{categoryId})
+    </insert>
+<select id="findCategoryName" statementType="PREPARED" resultType="category" parameterType="int">
+    select name from category where leaf=1
+</select>
+
+
+</mapper>

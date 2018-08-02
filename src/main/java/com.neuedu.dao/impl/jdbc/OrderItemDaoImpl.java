@@ -63,6 +63,16 @@ public class OrderItemDaoImpl implements OrderItemDao {
 	}
 
 	@Override
+	public boolean addOrderItems(UserOrderItem userOrderItem) {
+		return false;
+	}
+
+	@Override
+	public List<UserOrderItem> selectItem(long order) {
+		return null;
+	}
+
+	@Override
 	public int generateOrderItemId() {
 		// TODO Auto-generated method stub
 		return 0;

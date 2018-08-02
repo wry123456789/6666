@@ -1,0 +1,56 @@
+.sousuo{
+	background-color: #00645D;
+	color:white;
+}
+.che{
+	margin-top: 20px;
+	height: 50px;
+	width: 100%;
+	background-color: white;
+	border:1px darkgrey solid;
+	color:#00645D;
+	font-size:20px;
+	padding-top:10px ;
+	text-align: center;
+}
+.fenlei{
+	width: 100%;
+	height: 40px;
+	background-color:#00645D ;
+	color:white;
+	font-size:20px;
+	text-align: center;
+	padding-top: 5px;
+}
+.xian{
+	border-top: 2px #00645D solid;
+}
+.fenlei2{
+	font-size:20px;
+	margin-top: 5px;
+}
+.head{
+	text-align: center;
+}
+.buy1{
+	width:150px;
+	height: 40px;
+	background-color: white;
+	border:1px #00645D solid;
+	color:#00645D;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+}
+.buy2{
+	margin-left: 200px;
+	margin-top: -40px;
+	width:150px;
+	height: 40px;
+	background-color:#00645D;
+	border:1px #00645D solid;
+	color:white;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+}

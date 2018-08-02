@@ -17,6 +17,25 @@ public class UserOrder  implements Serializable{
 	private double  payment;//实际付款金额
 	private int payment_type;
 	private Address a;
+	private int shipping_id;
+
+	public int getShipping_id() {
+		return shipping_id;
+	}
+
+	public void setShipping_id(int shipping_id) {
+		this.shipping_id = shipping_id;
+	}
+
+	public int getPostage() {
+		return postage;
+	}
+
+	public void setPostage(int postage) {
+		this.postage = postage;
+	}
+
+	private int postage;
 	private int  status;
 	private long  payment_time;
 	private long  send_time;
@@ -54,7 +73,6 @@ public class UserOrder  implements Serializable{
 	public void setPayment_type(int payment_type) {
 		this.payment_type = payment_type;
 	}
-	
 	public Address getA() {
 		return a;
 	}

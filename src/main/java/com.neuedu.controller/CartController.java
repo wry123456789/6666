@@ -1,6 +1,7 @@
 package com.neuedu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.neuedu.entity.Account;
 import com.neuedu.entity.Cart;
 
@@ -52,7 +54,13 @@ public class CartController extends HttpServlet{
 			clearCart(req,resp);
 		}else if("7".equals(option)) {
 			updateCart(req,resp);
-		}
+		}else if("8".equals(option)) {
+			adds(req, resp);
+		}else if("9".equals(option)){
+            getAccount(req, resp);
+        }else if("10".equals(option)){
+            findAlls(req,resp);
+        }
 	}			
 	
    public void findProductId(HttpServletRequest req, HttpServletResponse resp) {
@@ -78,7 +86,49 @@ public class CartController extends HttpServlet{
 	/**
 	 * 添加购物车
 	 **/
+
+
+
+	public void adds(HttpServletRequest req, HttpServletResponse resp) {
+		System.out.println("添加购物车方法被调用了");
+		resp.setHeader("Access-Control-Allow-Origin" ,
+				"*");
+		String productid=req.getParameter("productid");
+
+		String productNum =req.getParameter("productnum");
+
+		int id =Integer.parseInt(productid);
+		System.out.println("商品id"+productid);
+		int num=Integer.parseInt(productNum);
+		System.out.println("商品数量"+num);
+//		HttpSession session1 = req.getSession();
+//		Account account=(Account)session1.getAttribute("acc");
+//		int accountid= account.getAccountId();
+//		System.out.println("用户id"+accountid);
+		cartService.addCart(id, num,4);
+
+	;
+	}
+
+	public  void getAccount(HttpServletRequest req, HttpServletResponse resp){
+	    System.out.println("获取到了用户id");
+	    resp.setHeader("Access-Control-Allow-Origin","*");
+		HttpSession session1 = req.getSession();
+		Account account=(Account)session1.getAttribute("acc");
+		System.out.println(account.getAccountId());
+		Gson gson = new Gson();
+		String id=gson.toJson(account);
+
+        try {
+           PrintWriter pw= resp.getWriter();
+           pw.write(id);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 	public void add(HttpServletRequest req, HttpServletResponse resp) {
+
 		String productid=req.getParameter("productid");
 		String productNum =req.getParameter("productnum");
 		
@@ -89,8 +139,32 @@ public class CartController extends HttpServlet{
 		  int accountid= account.getAccountId();
 		cartService.addCart(id, num,accountid);
 		findAll(req,resp);
-	
 	}
+
+	//前端
+    public void findAlls(HttpServletRequest req, HttpServletResponse resp) {
+	    System.out.println("找到所有的购物车");
+        resp.setHeader("Access-Control-Allow-Origin" ,
+                "*");
+        HttpSession session1 = req.getSession();
+//        Account account=(Account)session1.getAttribute("acc");
+//        int accountid= account.getAccountId();
+        List<Cart> lc=cartService.findAllCart(4);
+////        double totalprice=getTotalPrice(req,resp);
+////        System.out.println("总计"+totalprice);
+//        req.setAttribute("cartlist", lc);
+        Gson gson = new Gson();
+        String id=gson.toJson(lc);
+
+        try {
+            PrintWriter pw= resp.getWriter();
+            pw.write(id);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 	public void findAll(HttpServletRequest req, HttpServletResponse resp) {
 		 HttpSession session1 = req.getSession();
 		 Account account=(Account)session1.getAttribute("acc");
@@ -116,19 +190,21 @@ public class CartController extends HttpServlet{
 	 * 删除
 	 * */
 	public void  deleteCart(HttpServletRequest req, HttpServletResponse resp) {
+	    resp.setHeader("Access-Control-Allow-Origin","*");
 		String idc = req.getParameter("id");
 		int id =Integer.parseInt(idc);
 		cartService.deleteCart(id);
-		findAll(req,resp);
+//		findAll(req,resp);
 	}
 	
 	public void updateCart(HttpServletRequest req, HttpServletResponse resp) {
+        resp.setHeader("Access-Control-Allow-Origin","*");
 		String idc = req.getParameter("id");
 		int id =Integer.parseInt(idc);
 		String s = req.getParameter("num");
 		int num =Integer.parseInt(s);
 		cartService.updateCart(id, num);
-		findAll(req,resp);
+
 	}
 	
 	public void getNum(HttpServletRequest req, HttpServletResponse resp) {

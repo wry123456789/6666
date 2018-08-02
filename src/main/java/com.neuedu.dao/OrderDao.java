@@ -2,6 +2,8 @@ package com.neuedu.dao;
 
 import com.neuedu.entity.UserOrder;
 
+import java.util.List;
+
 public interface OrderDao {
 
 	/**
@@ -14,5 +16,5 @@ public interface OrderDao {
     * Éú³É¶©µ¥id
     * */
    int  generateOrderId();
-	
+   List<UserOrder> selectOrder(int userId);
 }

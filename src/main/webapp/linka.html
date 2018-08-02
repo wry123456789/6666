@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<style>
+			#head {
+				width: 100%;
+				height: 45px;
+				background-color: #FEC92B;
+				color: white;
+				font-size: 25px;
+				padding-top: 5px;
+				padding-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<ol class="breadcrumb daohang">
+						<li>
+							<span class="glyphicon glyphicon-home" style="color: #4CAE4C ;"></span>
+						</li>
+						<li class="active">商品</li>
+						<li class="active">商品管理</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div id="head">分类列表</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 col-sm-2 col-xs-12">
+					<div class="list-group" style="margin-top: 10px;">
+						<a href="#" class="list-group-item active" style="background-color:#FEC92B;border: 0px;"><span class="glyphicon glyphicon-refresh"></span>刷新列表</a>
+						<div id="open">
+							<a href="#about" class="list-group-item active" style="background-color:#FEC92B;border: 0px;margin-top: 10px;"><span class="glyphicon glyphicon-zoom-out"></span>所有分类</a>
+						</div>
+						<div id="one">
+							<div id="open2">
+								<a href="#about" class="list-group-item" style="background-color:#F5F5F5;"><span class="glyphicon glyphicon-zoom-in"></span>电脑办公</a>
+							</div>
+							<div id="two" style="display: none;">
+								<a href="linka1.html" class="list-group-item" target="main2">联想</a>
+								<a href="#about" class="list-group-item">戴尔</a>
+								<a href="#about" class="list-group-item">华硕</a>
+								<a href="#about" class="list-group-item">外星人</a>
+								<a href="#about" class="list-group-item">神州</a>
+							</div>
+							<div id="open3">
+								<a href="#about" class="list-group-item" style="background-color:#F5F5F5;"><span class="glyphicon glyphicon-zoom-in"></span>手机通讯</a>
+							</div>
+							<div id="three" style="display: none;">
+								<a href="linka2.html" class="list-group-item" target="main2">小米</a>
+								<a href="#about" class="list-group-item">三星</a>
+								<a href="#about" class="list-group-item">苹果</a>
+								<a href="#about" class="list-group-item">华为</a>
+								<a href="#about" class="list-group-item">OPPO</a>
+							</div>
+							<div id="open4">
+								<a href="#about" class="list-group-item" style="background-color:#F5F5F5;"><span class="glyphicon glyphicon-zoom-in"></span>影音视听</a>
+							</div>
+							<div id="four" style="display: none;">
+								<a href="#about" class="list-group-item">电视机</a>
+								<a href="#about" class="list-group-item">音响</a>
+								<a href="#about" class="list-group-item">耳机</a>
+								<a href="#about" class="list-group-item">照相机</a>
+								<a href="#about" class="list-group-item">摄像机</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-12">
+					<form class="form-inline" style="margin-top: 20px;">
+						<div class="form-group">
+							<label for="exampleInputName2">商品名称：</label>
+							<input type="text" class="form-control" id="exampleInputName2">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail2">品牌：</label>
+							<input type="email" class="form-control" id="exampleInputEmail2">
+						</div>
+						<button type="submit" class="btn btn-default" style="background-color: #FEC92B;color:white;border:0px;">查询</button>
+					</form>
+					
+					
+					<iframe class="embed-responsive-item" name="main2" frameborder="0" src="welcome3.html" height="1000px" width="100%" style="margin-top: 20px;"></iframe>
+				</div>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	</body>
+	<script>
+		var open = document.querySelector("#open");
+		var flag = true;
+		open.onclick = function() {
+			var open = document.querySelector("#one");
+			if(flag) {
+				open.style.display = "none";
+				flag = false;
+			} else {
+				open.style.display = "block";
+				flag = true;
+			}
+		};
+		var open = document.querySelector("#open2");
+		var flag = true;
+		open.onclick = function() {
+			var open = document.querySelector("#two");
+			if(flag) {
+				open.style.display = "none";
+				flag = false;
+			} else {
+				open.style.display = "block";
+				flag = true;
+			}
+		};
+		var open = document.querySelector("#open3");
+		var flag = true;
+		open.onclick = function() {
+			var open = document.querySelector("#three");
+			if(flag) {
+				open.style.display = "none";
+				flag = false;
+			} else {
+				open.style.display = "block";
+				flag = true;
+			}
+		};
+		var open = document.querySelector("#open4");
+		var flag = true;
+		open.onclick = function() {
+			var open = document.querySelector("#four");
+			if(flag) {
+				open.style.display = "none";
+				flag = false;
+			} else {
+				open.style.display = "block";
+				flag = true;
+			}
+		};
+	</script>
+
+</html>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.neuedu.dao.impl.jdbc.OrderDaoImpl;
 import com.neuedu.entity.Account;
 import com.neuedu.entity.Address;
 import com.neuedu.entity.UserOrder;
@@ -43,7 +44,9 @@ public class OrderController extends HttpServlet{
 			 createOrder(req,resp);
 			}else if("2".equals(option)) {
 				findAll(req,resp);
-		 } 
+		 } else if("3".equals(option)){
+			 finaALL2(req,resp);
+		 }
 }
 
 
@@ -91,6 +94,7 @@ public class OrderController extends HttpServlet{
 				 System.out.println("增加成功");
 				 //清空购物车
 				 cartService.cartService();
+                 finaALL2(req,resp);
 			 }else {
 				 System.out.println("增加失败");
 			 }
@@ -110,5 +114,21 @@ public class OrderController extends HttpServlet{
 				System.out.println("跳转失败");
 			}
 	    }
-	
+	public void finaALL2(HttpServletRequest request,HttpServletResponse response){
+		OrderDaoImpl or = new OrderDaoImpl();
+		HttpSession session1 =  request.getSession();
+		Account account=(Account)(session1.getAttribute("acc"));
+		List<UserOrder> l=null;
+		if(account!=null) {
+			 l = or.findAll(account.accountId);
+		}
+		request.setAttribute("userorder", l);
+		try {
+			request.getRequestDispatcher("showorder.jsp").forward(request, response);
+			System.out.println("跳转成功");
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("跳转失败");
+		}
+	}
 }

@@ -16,6 +16,20 @@ public class Cart  implements Serializable{
 	private  int  productNum;//商品数量
 	private double totalPrice;
 	private Account acc;
+private int checked;
+	public int getChecked() {
+		return checked;
+	}
+
+	public void setChecked(int checked) {
+		this.checked = checked;
+	}
+    public Cart(Product product,int productNum,Account acc){
+            this.product=product;
+            this.productNum=productNum;
+            this.acc=acc;
+	}
+
 	public Account getAcc() {
 		return acc;
 	}
@@ -57,6 +71,7 @@ public class Cart  implements Serializable{
 	public void setProductNum(int productNum) {
 		this.productNum = productNum;
 	}
+
 	@Override
 	public String toString() {
 		return "Cart [id=" + id + ", product=" + product + ", productNum=" + productNum + "]";

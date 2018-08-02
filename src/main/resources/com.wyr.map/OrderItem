@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.OrderItemDao">
+<insert id="addOrderItems" parameterType="orderItem">
+insert into userorderitem(order_no,user_id,productid,product_name,product_image,current_unit_price,quantity,total_price,status,create_time) values(
+#{order_no},#{user_id},#{product_id},#{product_name},#{product_image},
+#{current_unit_price},#{quantity},#{total_price},#{status},now())
+
+</insert>
+
+    <resultMap id="findItem" type="orderItem" autoMapping="true">
+      <result column="productid" property="product_id"></result>
+    </resultMap>
+    <select id="selectItem" parameterType="long" resultMap="findItem">
+        select id,order_no,user_id,productid,product_name,product_image,current_unit_price,quantity,total_price,status,create_time from userorderitem where
+        order_no=#{order_no}
+    </select>
+</mapper>
+<!--private  int  id;
+	private  long order_no;
+	private int user_id;
+	private int product_id;
+	private String product_name;
+	private String product_image;
+	private double current_unit_price;
+	private int quantity;
+	private double total_price;
+	private long create_time;
+	private long update_time;
+	-->

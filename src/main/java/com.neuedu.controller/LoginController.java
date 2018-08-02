@@ -89,7 +89,7 @@ public class LoginController extends HttpServlet{
 			loginService.addToken(token, a);
 			System.out.println(token);
 			//µÇÂ¼³É¹¦
-			req.getRequestDispatcher("loginsucess.jsp").forward(req, resp);
+			req.getRequestDispatcher("guanliyuanhoutai.html").forward(req, resp);
 		}else {
 			//µÇÂ¼Ê§°Ü
 			req.getRequestDispatcher("loginfail.jsp").forward(req, resp);
@@ -107,7 +107,7 @@ public class LoginController extends HttpServlet{
 		if(flag) {
 			System.out.println("×¢²á³É¹¦");
 			try {
-				req.getRequestDispatcher("login.jsp").forward(req, resp);
+				req.getRequestDispatcher("index.html").forward(req, resp);
 			} catch (ServletException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
